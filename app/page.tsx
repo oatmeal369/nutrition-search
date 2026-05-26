@@ -29,7 +29,7 @@ type Nutrient = {
 const labelNutrients: Nutrient[] = [
   { key: "SERVING_SIZE", label: "영양성분 기준량" },
   { key: "AMT_NUM1", label: "에너지", unit: "kcal" },
-  { key: "AMT_NUM6", label: "탄수화물v2", unit: "g" },
+  { key: "AMT_NUM6", label: "탄수화물", unit: "g" },
   { key: "AMT_NUM7", label: "당류", unit: "g" },
   { key: "AMT_NUM8", label: "식이섬유", unit: "g" },
   { key: "AMT_NUM3", label: "단백질", unit: "g" },
