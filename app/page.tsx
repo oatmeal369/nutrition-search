@@ -11,7 +11,6 @@ type Food = {
   FOOD_NM_KR?: string;
   DB_GRP_NM?: string;
   DB_CLASS_NM?: string;
-  NUT_CON_STT?: string;
   AMT_NUM1?: number | string | null; // 에너지 kcal
   AMT_NUM3?: number | string | null; // 단백질 g
   AMT_NUM4?: number | string | null; // 지방 g
@@ -47,7 +46,7 @@ export default function Home() {
 
     const { data, error } = await supabase
       .from("foods")
-      .select('id, NUM, FOOD_CD, FOOD_NM_KR, DB_GRP_NM, DB_CLASS_NM, NUT_CON_STT, AMT_NUM1, AMT_NUM3, AMT_NUM4, AMT_NUM6, AMT_NUM13')
+      .select('id, NUM, FOOD_CD, FOOD_NM_KR, DB_GRP_NM, DB_CLASS_NM, AMT_NUM1, AMT_NUM3, AMT_NUM4, AMT_NUM6, AMT_NUM13')
       .ilike("FOOD_NM_KR", `%${q}%`)
       .limit(50);
 
@@ -147,7 +146,7 @@ export default function Home() {
                   <p className="text-sm text-emerald-300">선택한 식품</p>
                   <h2 className="mt-1 text-3xl font-bold">{selected.FOOD_NM_KR}</h2>
                   <p className="mt-2 text-neutral-400">
-                    식품코드 {selected.FOOD_CD ?? "-"} · 분류 {selected.DB_GRP_NM ?? "-"} · 기준 {selected.NUT_CON_STT ?? "-"}
+                    식품코드 {selected.FOOD_CD ?? "-"} · 분류 {selected.DB_GRP_NM ?? "-"}
                   </p>
                 </div>
 
@@ -167,7 +166,6 @@ export default function Home() {
                     <Info label="FOOD_NM_KR" value={selected.FOOD_NM_KR ?? "-"} />
                     <Info label="DB_GRP_NM" value={selected.DB_GRP_NM ?? "-"} />
                     <Info label="DB_CLASS_NM" value={selected.DB_CLASS_NM ?? "-"} />
-                    <Info label="NUT_CON_STT" value={selected.NUT_CON_STT ?? "-"} />
                   </div>
                 </div>
               </div>
@@ -201,3 +199,4 @@ function Info({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
